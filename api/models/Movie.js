@@ -1,14 +1,28 @@
 /**
  * Movie.js
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
+ * @description Movies stored
  */
 
 module.exports = {
 
   attributes: {
-
+    title: {
+      type: 'string',
+      required: true
+    },
+    author: {
+      type: 'string',
+      required: true
+    },
+    releaseYear: {
+      type: 'integer',
+      required: true
+    },
+    createdByUser: {
+      model: 'user',
+      required: true
+    }
   }
-};
 
+};
