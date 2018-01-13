@@ -18,7 +18,7 @@ module.exports = {
         req.session.authenticated = true;
         delete user.password;
         req.session.user = user;
-        res.ok(user);
+        return res.ok(user);
       });
     });
   },
