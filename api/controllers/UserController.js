@@ -6,12 +6,14 @@
 
 module.exports = {
   signin: function(req, res) {
-    var email = req.param('email');
-    var password = req.param('password');
-    HashService.passwordHash(password, function(err, passwordHash) {
-      User.findOne({ email: email, password: passwordHash }).exec(function(err, user) {
-        if(err) {
-          return res.notFound('Email/Password not found');
+    var errorMessage = 'Email/Password matching not found';
+    User.findOne({ email: req.param('email') }).exec(function(err, user) {
+      if(err) {
+        return res.notFound(errorMessage);
+      }
+      HashService.comparePasswordHash(req.param('password'), user.password, function(err, res) {
+        if(err || !res) {
+          return res.notFound(errorMessage);
         }
         req.session.authenticated = true;
         delete user.password;
@@ -23,14 +25,14 @@ module.exports = {
 
   signout: function(req, res) {
     req.session.authenticated = false;
-    if(req.session.user !== 'undefined') {
+    if(typeof req.session.user !== 'undefined') {
       delete req.session.user;
     }
     return res.ok({});
   },
 
   whoami: function(req, res) {
-    if(typeof req.session.authenticated !== undefined && req.session.authenticated) {
+    if(req.session.authenticated) {
       return res.ok(req.session.user);
     }
     return res.ok({});
