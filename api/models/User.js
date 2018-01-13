@@ -27,7 +27,7 @@ module.exports = {
     if(typeof values.password === 'undefined' || values.password.length < 8) {
       return cb('Please provide a password with at least 8 characters');
     }
-    bcrypt.hash(values.password, 'LibrarySalt', function(err, hash) {
+    HashService.passwordHash(values.password, 'LibrarySalt', function(err, hash) {
       if(err) {
         return cb(err);
       }
@@ -35,5 +35,5 @@ module.exports = {
       return cb();
     });
   }
-
+  
 };
