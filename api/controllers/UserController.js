@@ -9,10 +9,10 @@ module.exports = {
     var errorMessage = 'Email/Password matching not found';
     User.findOne({ email: req.param('email') }).exec(function(err, user) {
       if(err) {
-        return res.notFound(errorMessage);
+        return res.ok(errorMessage);
       }
-      HashService.comparePasswordHash(req.param('password'), user.password, function(err, res) {
-        if(err || !res) {
+      HashService.comparePasswordHash(req.param('password'), user.password, function(err, result) {
+        if(err || !result) {
           return res.notFound(errorMessage);
         }
         req.session.authenticated = true;
@@ -35,6 +35,6 @@ module.exports = {
     if(req.session.authenticated) {
       return res.ok(req.session.user);
     }
-    return res.ok({});
+    return res.notFound('Not connected');
   }
 };

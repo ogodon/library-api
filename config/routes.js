@@ -31,11 +31,7 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
-  '/': {
-    view: 'homepage'
-  }
-
+  
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
@@ -45,5 +41,18 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+  'POST /api/signin': {
+    controller: 'UserController',
+    action: 'signin'
+  },
+  'POST /api/signout': {
+    controller: 'UserController',
+    action: 'signout'
+  },
+  'GET /api/whoami': {
+    controller: 'UserController',
+    action: 'whoami'
+  }
 
 };

@@ -15,7 +15,7 @@ module.exports = {
   },
 
   comparePasswordHash: function(password, hash, cb) {
-    bcrypt.compare(passord, hash, function(err, res) {
+    bcrypt.compare(password, hash, function(err, res) {
       return cb(err, res);
     });
   }
