@@ -18,9 +18,6 @@ module.exports = {
     releaseYear: {
       type: 'integer',
       required: true
-    },
-    createdByUser: {
-      model: 'user'
     }
   }
 

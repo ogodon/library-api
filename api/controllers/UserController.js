@@ -5,6 +5,7 @@
  */
 
 module.exports = {
+
   signin: function(req, res) {
     var errorMessage = 'Email/Password matching not found';
     User.findOne({ email: req.param('email') }).exec(function(err, user) {
@@ -15,26 +16,11 @@ module.exports = {
         if(err || !result) {
           return res.notFound(errorMessage);
         }
-        req.session.authenticated = true;
-        delete user.password;
-        req.session.user = user;
-        return res.ok(user);
+        delete result.password;
+        var token = JwtService.issueToken(result);
+        return res.ok({ token: token });
       });
     });
-  },
-
-  signout: function(req, res) {
-    req.session.authenticated = false;
-    if(typeof req.session.user !== 'undefined') {
-      delete req.session.user;
-    }
-    return res.ok({});
-  },
-
-  whoami: function(req, res) {
-    if(req.session.authenticated) {
-      return res.ok(req.session.user);
-    }
-    return res.notFound('Not connected');
   }
+  
 };

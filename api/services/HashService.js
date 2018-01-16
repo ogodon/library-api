@@ -1,7 +1,7 @@
 /**
- * User.js
+ * HashService.js
  *
- * @description Users of the application
+ * @description Hash service
  */
  
 var bcrypt = require('bcrypt');
