@@ -42,15 +42,15 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'POST /api/signin': {
+  'POST /signin': {
     controller: 'UserController',
     action: 'signin'
   },
-  'POST /api/signout': {
+  'POST /signout': {
     controller: 'UserController',
     action: 'signout'
   },
-  'GET /api/whoami': {
+  'GET /whoami': {
     controller: 'UserController',
     action: 'whoami'
   }
