@@ -20,8 +20,7 @@ module.exports = {
       required: true
     },
     createdByUser: {
-      model: 'user',
-      required: true
+      model: 'user'
     }
   }
 
