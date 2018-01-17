@@ -16,8 +16,8 @@ module.exports = {
         if(err || !result) {
           return res.notFound(errorMessage);
         }
-        delete result.password;
-        var token = JwtService.issueToken(result);
+        delete user.password;
+        var token = JwtService.issueToken(user);
         return res.ok({ token: token });
       });
     });
