@@ -8,7 +8,7 @@
  */
 module.exports = function(req, res, next) {
 
-  if(!req.token.administrator) {
+  if(!req.token.adm) {
     return res.json(401, { err: { status: 'danger', message: res.i18n('auth.policy.notAdministrator') } });
   }
   next();
