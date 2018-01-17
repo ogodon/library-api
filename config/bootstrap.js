@@ -15,6 +15,7 @@ module.exports.bootstrap = function(cb) {
     console.log(err, user);
   });
   */
+  //User.create({ email: 'olivier@antinea.org', password: 'patapata' }).exec(function(err, user) {});
   
   cb();
 };
