@@ -45,14 +45,6 @@ module.exports.routes = {
   'POST /signin': {
     controller: 'UserController',
     action: 'signin'
-  },
-  'POST /signout': {
-    controller: 'UserController',
-    action: 'signout'
-  },
-  'GET /whoami': {
-    controller: 'UserController',
-    action: 'whoami'
   }
 
 };
