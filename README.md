@@ -4,8 +4,8 @@ a [Sails](http://sailsjs.org) application
 
 Used to make the library-frontend works correctly.
 
-For that, please consider a nginx configuration like the following:
-
+## NGINX configuration example
+Please consider a nginx configuration like the following:
 ```
 server {
 	listen 8080;
