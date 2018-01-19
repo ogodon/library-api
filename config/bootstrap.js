@@ -10,12 +10,5 @@
  */
 
 module.exports.bootstrap = function(cb) {
-  /*
-  User.update({ id: 1 }, { administrator: true }).exec(function(err, user) {
-    console.log(err, user);
-  });
-  */
-  //User.create({ email: 'olivier@antinea.org', password: 'patapata' }).exec(function(err, user) {});
-  
   cb();
 };
