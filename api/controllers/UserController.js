@@ -4,6 +4,8 @@
  * @description Users
  */
 
+var validator = require('validator');
+
 module.exports = {
 
   signin: function(req, res) {
@@ -28,7 +30,7 @@ module.exports = {
   },
 
   signup: function(req, res) {
-    if(req.param('email').trim() === '') {
+    if(!validator.isEmail(req.param('email'))) {
       return res.badRequest('Email cannot be empty');
     }
     if(req.param('password').trim().length < 8) {
