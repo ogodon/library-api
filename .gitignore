@@ -116,3 +116,4 @@ package-lock.json
 nbproject
 .idea
 .node_history
+.vscode
