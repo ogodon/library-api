@@ -28,9 +28,22 @@ This is currently working with a disk database. Sails abstracts the database lay
 
 ### Configure the API to work with a MySQL database
 It's possible and easy to add a MySQL database configuration for the project.
-At the next first run, Sails will create the tables.
+The dependency `sails mysql` is already installed.
+In `config/connections.js` add the mysql adapter:
+```
+mysql: {
+	adapter: 'sails-mysql',
+	host: '127.0.0.1',
+	user: 'user',
+	password: 'password',
+	database: 'library',
+	charset   : 'utf8',
+	collation : 'utf8_unicode_ci'
+},
+```
+In `config/models.js` replace `connection: 'localDiskDb'` by `connection: 'mysql'`.
+At the next first run, Sails will create the empty tables.
 
 ### Safe mode when tables are created
 Then it's recommended to run the API in safe mode for database. This means Sails won't be able to change automatically the structure of tables.
-
-
+For that in `config/models.js` replace `migrate: 'alter'` by `migrate: 'safe'`.
