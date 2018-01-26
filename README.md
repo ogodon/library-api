@@ -7,7 +7,7 @@ Used to make the library-frontend works correctly.
 ## NGINX configuration example
 ```
 server {
-	listen 8080;
+	listen 80;
 
   ...
 
