@@ -1,8 +1,15 @@
 # library-api
 
+## Purpose
 a [Sails](http://sailsjs.org) application
-
 Used to make the library-frontend works correctly.
+
+## To use it
+Install dependencies
+```npm install```
+
+Start the API
+```sails lift```
 
 ## NGINX configuration example
 ```
